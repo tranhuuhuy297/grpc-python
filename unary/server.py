@@ -5,7 +5,7 @@ import bookstore_pb2_grpc
 import grpc
 
 
-class Firster(bookstore_pb2_grpc.BookStoreServicer):
+class BookStoreService(bookstore_pb2_grpc.BookStoreServicer):
     def first(self, request, context):
         print(str(request))
         # TO-DO: 
@@ -14,7 +14,7 @@ class Firster(bookstore_pb2_grpc.BookStoreServicer):
 
 def server():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
-    bookstore_pb2_grpc.add_BookStoreServicer_to_server(Firster(), server)
+    bookstore_pb2_grpc.add_BookStoreServicer_to_server(BookStoreService(), server)
     server.add_insecure_port('[::]:50051')
     print("gRPC starting")
     server.start()
