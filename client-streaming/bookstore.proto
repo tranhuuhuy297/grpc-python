@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service BookSearchService {
+  rpc BulkSearchBooks(stream BookSearchRequest) returns (BookSearchResponse) {}
+}
+
+message BookSearchRequest {
+  string title = 1;
+  int32 quantity = 2;
+  float price_per_book = 3;
+}
+
+message BookSearchResponse {
+  float total_price = 1;
+}
