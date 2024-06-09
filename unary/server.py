@@ -8,6 +8,7 @@ import grpc
 class Firster(bookstore_pb2_grpc.BookStoreServicer):
     def first(self, request, context):
         print(str(request))
+        # TO-DO: 
         return bookstore_pb2.Book(name=request.name, author=request.author, price=3)
 
 

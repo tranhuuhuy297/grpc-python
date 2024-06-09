@@ -20,5 +20,5 @@ def server():
     server.start()
     server.wait_for_termination()
 
-
-server()
+if __name__ == '__main__':
+    server()
